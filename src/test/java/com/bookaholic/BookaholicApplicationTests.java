@@ -8,6 +8,6 @@ class BookaholicApplicationTests {
 
 	@Test
 	void contextLoads() {
-	}
+	 }
 
 }

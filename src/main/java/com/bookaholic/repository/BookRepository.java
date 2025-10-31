@@ -8,12 +8,12 @@ import java.util.List;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    // 📚 Βρες όλα τα βιβλία ενός user
+    // find all books by Userid
     List<Book> findByUserId(Long userId);
 
-    // 🏷️ Βρες βιβλία by reading status
+    //  find all books by reading_status
     List<Book> findByReadingStatus(String readingStatus);
 
-    // 🔍 Βρες βιβλία ενός user by status
+    //  find books by user and status
     List<Book> findByUserIdAndReadingStatus(Long userId, String readingStatus);
 }

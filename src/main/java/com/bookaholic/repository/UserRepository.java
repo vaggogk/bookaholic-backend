@@ -6,15 +6,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    // 🔍 Βρες user από username
+    //  Check if username exists
     Optional<User> findByUsername(String username);
 
-    // 📧 Βρες user από email
+      // Check if email exists
     Optional<User> findByEmail(String email);
 
-    // ✅ Έλεγχος αν υπάρχει username
+      // find username by username
     boolean existsByUsername(String username);
 
-    // ✅ Έλεγχος αν υπάρχει email
+    // find email  by email
     boolean existsByEmail(String email);
 }

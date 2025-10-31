@@ -10,6 +10,6 @@ public class AuthController {
 
     @GetMapping("/test")
     public String test() {
-        return "Backend is working! 🚀";
+        return "Backend is working";
     }
 }
