@@ -1,5 +1,6 @@
 package com.bookaholic.model;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -51,5 +52,5 @@ public class Book {
     private User user;
 
     @Column(name = "created_at")
-    private LocalDateTime createdAt;
-}y67
+    private LocalDateTime createdAt = LocalDateTime.now();
+}
