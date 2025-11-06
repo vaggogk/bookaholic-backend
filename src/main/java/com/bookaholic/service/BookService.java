@@ -42,19 +42,31 @@ public class BookService implements IBookService  {
     }
 
     @Override
-    public Book getBookById(Long BookId) {
-        return null;
+    public Book getBookById(Long bookId) {
+        return bookRepository.findById(bookId)
+                .orElseThrow(() -> new RuntimeException("Book not found with id: " + bookId));
     }
 
     @Override
-    public Book saveBook(Book book, User user) {
-        return null;
+    public Book saveBook(Book book, User user){
+    try {
+        book.setUser(user);
+        return bookRepository.save(book);
+    } catch (Exception e){
+      throw new RuntimeException("Book not saved " +  e.getMessage(), e);
     }
+}
 
     @Override
     public void deleteBook(Long bookId) {
+      try {
+            Book book = getBookById(bookId);
+            bookRepository.delete(book);
 
+    } catch (Exception e){
+        throw new RuntimeException("Delete failed for book with id" + bookId, e);
     }
+}
 
     @Override
     public Long countUserBooks(Long userId) {
