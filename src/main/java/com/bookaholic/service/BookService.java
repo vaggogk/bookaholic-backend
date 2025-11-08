@@ -1,5 +1,7 @@
 package com.bookaholic.service;
 
+import com.bookaholic.DTO.BookRequestDTO;
+import com.bookaholic.mapper.BookMapper;
 import com.bookaholic.model.Book;
 import com.bookaholic.model.User;import com.bookaholic.repository.BookRepository;
 
@@ -11,7 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.time.LocalDateTime;
+
 
 
 @Service
@@ -20,6 +23,9 @@ public class BookService implements IBookService  {
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private BookMapper bookMapper;
 
     @Override
     public Page<Book> getUserBooks(Long userId, Pageable pageable) {
@@ -48,14 +54,39 @@ public class BookService implements IBookService  {
     }
 
     @Override
-    public Book saveBook(Book book, User user){
+    public Book saveBook(BookRequestDTO bookDTO, User user){
     try {
+        Book book = bookMapper.mapToBookEntity(bookDTO);
         book.setUser(user);
         return bookRepository.save(book);
     } catch (Exception e){
       throw new RuntimeException("Book not saved " +  e.getMessage(), e);
     }
-}
+
+    }
+        @Override
+        public Book updateBook(Long bookId, BookRequestDTO bookDTO, User user) {
+            Book existingBook = getBookById(bookId);
+
+            if (!existingBook.getUser().getId().equals(user.getId())) {
+                throw new RuntimeException("Access denied");
+            }
+
+            // Update fields from DTO
+            existingBook.setImageUrl(bookDTO.getImageUrl());
+            existingBook.setTitle(bookDTO.getTitle());
+            existingBook.setAuthor(bookDTO.getAuthor());
+            existingBook.setPublisher(bookDTO.getPublisher());
+            existingBook.setPages(bookDTO.getPages());
+            existingBook.setCost(bookDTO.getCost());
+            existingBook.setReadingStatus(bookDTO.getReadingStatus());
+            existingBook.setReviewRating(bookDTO.getReviewRating());
+            existingBook.setNotes(bookDTO.getNotes());
+            existingBook.setUpdatedAt(LocalDateTime.now());
+
+            return bookRepository.save(existingBook);
+        }
+
 
     @Override
     public void deleteBook(Long bookId) {
