@@ -1,12 +1,13 @@
 package com.bookaholic.service;
 
+import com.bookaholic.DTO.BookRequestDTO;
 import com.bookaholic.model.Book;
 import com.bookaholic.model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 
 @Service
 public interface IBookService {
@@ -21,7 +22,9 @@ public interface IBookService {
 
     public Book getBookById(Long BookId);
 
-    public Book saveBook(Book book, User user);
+    public Book saveBook(BookRequestDTO bookDTO, User user);
+
+    public Book updateBook(Long bookId, BookRequestDTO updatedBook, User user);
 
     public void deleteBook(Long bookId);
 
