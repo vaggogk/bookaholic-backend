@@ -62,7 +62,9 @@ public class UserService  implements IUserService {
 
     @Override
     public User login(String username, String password) {
-        User user = findByUsername(username);
+
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         if(!passwordEncoder.matches(password, user.getPassword())) {
             throw new RuntimeException("Invalid password");
