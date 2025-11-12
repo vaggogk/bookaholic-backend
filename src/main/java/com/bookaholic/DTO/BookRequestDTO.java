@@ -18,7 +18,6 @@ import java.time.LocalDateTime;
 @Setter
 public class BookRequestDTO {
 
-    private Long id;
 
     private String imageUrl;
 
@@ -34,11 +33,12 @@ public class BookRequestDTO {
     @Size(min = 1, max = 100, message = "Publisher must be between 1-100 characters.")
     private String publisher;
 
-    @NotBlank(message = "Pages is required")
+
     @Min(value = 0,  message = "Pages can be 0" )
     @Max(value = 10000, message = "Pages cannot exceed 10,000")
     private int pages;
 
+    @NotNull(message = "Cost is required")
     @DecimalMin(value = "0.0" , message = "Cost is required")
     private Double cost;
 
@@ -54,6 +54,5 @@ public class BookRequestDTO {
     @Size(max = 10000, message = "Notes cannot exceed 10.000 characters")
     private String notes;
 
-    private LocalDateTime createdAt ;
-    private LocalDateTime updatedAt ;
+
 }
