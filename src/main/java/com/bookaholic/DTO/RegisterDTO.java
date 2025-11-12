@@ -24,7 +24,7 @@ public class RegisterDTO {
     private String email;
 
     @NotNull(message = "The password cant be null.")
-    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=])^.{8,}$",
+    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=])^.{12,}$",
              message = "Password must contain at least 1 lowercase, 1 uppercase, 1 number and 1 special character with no space.")
         private String password;
 
