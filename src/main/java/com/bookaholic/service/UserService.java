@@ -40,10 +40,10 @@ public class UserService  implements IUserService {
     @Override
     public User save(User user) {
         if (existsByUsername(user.getUsername())) {
-            throw new RuntimeException("❌ Username already exists");
+            throw new RuntimeException(" Username already exists");
         }
         if (existsByEmail(user.getEmail())) {
-            throw new RuntimeException("📧 Email already exists");
+            throw new RuntimeException(" Email already exists");
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
