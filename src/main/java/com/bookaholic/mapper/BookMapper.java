@@ -1,6 +1,7 @@
 package com.bookaholic.mapper;
 
 import com.bookaholic.DTO.BookRequestDTO;
+import com.bookaholic.DTO.BookResponseDTO;
 import com.bookaholic.model.Book;
 import org.springframework.stereotype.Component;
 
@@ -23,20 +24,20 @@ public class BookMapper {
     }
 
 
-    public BookRequestDTO mapToBookResponseDTO(Book book) {
-           return new BookRequestDTO(
-                   book.getId(),
-                   book.getImageUrl(),
-                   book.getTitle(),
-                   book.getAuthor(),
-                   book.getPublisher(),
-                   book.getPages(),
-                   book.getCost(),
-                   book.getReadingStatus(),
-                   book.getReviewRating(),
-                   book.getNotes(),
-                   book.getCreatedAt(),
-                   book.getUpdatedAt()
-           );
+    public BookResponseDTO mapToBookResponseDTO(Book book) {
+            BookResponseDTO dto = new BookResponseDTO();
+            dto.setId(book.getId());
+            dto.setImageUrl(book.getImageUrl());
+            dto.setTitle(book.getTitle());
+            dto.setAuthor(book.getAuthor());
+            dto.setPublisher(book.getPublisher());
+            dto.setPages(book.getPages());
+            dto.setCost(book.getCost());
+            dto.setReadingStatus(book.getReadingStatus());
+            dto.setReviewRating(book.getReviewRating());
+            dto.setNotes(book.getNotes());
+            dto.setCreatedAt(book.getCreatedAt());
+            dto.setUpdatedAt(book.getUpdatedAt());
+            return dto;
     }
 }
