@@ -28,5 +28,8 @@ public class RegisterDTO {
              message = "Password must contain at least 1 lowercase, 1 uppercase, 1 number and 1 special character with no space.")
         private String password;
 
+    @NotNull(message = "Confirm password cannot be null.")
+    private String confirmPassword;
+
     }
 
