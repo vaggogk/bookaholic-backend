@@ -12,9 +12,9 @@ public class UserMapper {
 
     public User mapToUserEntity(RegisterDTO dto) {
         return new User(null,
-                dto.getPassword(),
-                dto.getEmail(),
                 dto.getUsername(),
+                dto.getEmail(),
+                dto.getPassword(),
                 LocalDateTime.now(),
                 null);
     }
