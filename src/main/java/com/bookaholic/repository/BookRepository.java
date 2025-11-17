@@ -24,7 +24,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     Long countByUserIdAndReadingStatus(Long userId, String readingStatus);
 
-    @Query("SELECT b FROM Book b WHERE b.user.id = :userId AND" +
+    @Query("SELECT b FROM Book b WHERE b.user.id = :userId AND " +
     "(LOWER(b.title) LIKE LOWER(CONCAT('%', :search, '%')) OR " +
     "LOWER(b.author) LIKE LOWER(CONCAT('%', :search, '%')) OR " +
     "LOWER(b.publisher) LIKE LOWER(CONCAT('%', :search, '%')))"
@@ -33,9 +33,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
                                      @Param("search") String search,
                                      Pageable pageable);
 
-    @Query("SELECT b FROM Book b WHERE b.user.id = :userId AND b.readingStatus = :status AND" +
-            "(LOWER(b.title) LIKE LOWER(CONCAT('%', :search, '%')) OR" +
-            "LOWER(b.author) LIKE LOWER(CONCAT('%', :search, '%')) OR" +
+    @Query("SELECT b FROM Book b WHERE b.user.id = :userId AND b.readingStatus = :status AND " +
+            "(LOWER(b.title) LIKE LOWER(CONCAT('%', :search, '%')) OR " +
+            "LOWER(b.author) LIKE LOWER(CONCAT('%', :search, '%')) OR " +
             "LOWER(b.publisher) LIKE LOWER(CONCAT('%', :search, '%')))"
     )
     Page<Book> findByUserIdAndStatusAndSearch(@Param("userId") Long userId,
@@ -43,19 +43,18 @@ public interface BookRepository extends JpaRepository<Book, Long> {
                                               @Param("search") String search,
                                               Pageable pageable);
 
-    @Query("SELECT COUNT(b) FROM Book b WHERE b.user.id = :userId AND" +
-            "(LOWER(b.title) LIKE LOWER(CONCAT('%', :search, '%')) OR" +
-            "LOWER(b.author) LIKE LOWER(CONCAT('%', :search, '%')) OR" +
-            "LOWER(b.publisher) LIKE LOWER(CONCAT('%', :search, '%')))"
-    )
+    @Query("SELECT COUNT(b) FROM Book b WHERE b.user.id = :userId AND " +
+            "(LOWER(b.title) LIKE LOWER(CONCAT('%', :search, '%')) OR " +
+            "LOWER(b.author) LIKE LOWER(CONCAT('%', :search, '%')) OR " +
+            "LOWER(b.publisher) LIKE LOWER(CONCAT('%', :search, '%')))")
     Long countByUserIdAndSearch(@Param("userId") Long userId,
                                 @Param("search") String search);
 
-    @Query("SELECT COUNT(b) FROM Book b WHERE b.user.id = :userId AND b.readingStatus = :status AND" +
-            "(LOWER(b.title) LIKE LOWER(CONCAT('%', :search, '%')) OR" +
-            "LOWER(b.author) LIKE LOWER(CONCAT('%', :search, '%')) OR" +
-            "LOWER(b.publisher) LIKE LOWER(CONCAT('%', :search, '%')))"
-    )
+    @Query("SELECT COUNT(b) FROM Book b WHERE b.user.id = :userId AND " +
+            "b.readingStatus = :status AND (LOWER(b.title) LIKE " +
+            "LOWER(CONCAT('%', :search, '%')) OR LOWER(b.author) " +
+            "LIKE LOWER(CONCAT('%', :search, '%')) OR LOWER(b.publisher) " +
+            "LIKE LOWER(CONCAT('%', :search, '%')))")
     Long countByUserIdAndStatusAndSearch(@Param("userId") Long userId,
                                          @Param("status") String status,
                                          @Param("search") String search);
