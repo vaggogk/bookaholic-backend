@@ -18,7 +18,7 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class AuthController {
 
@@ -29,6 +29,10 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody RegisterDTO registerDTO) {
         try {
+            if (!registerDTO.getPassword().equals(registerDTO.getConfirmPassword())) {
+                return ResponseEntity.badRequest().body("Passwords do not match");
+            }
+
             User user = userMapper.mapToUserEntity(registerDTO);
             User savedUser = userService.save(user);
             UserReadOnlyDTO response = userMapper.mapToUserReadOnlyDTO(savedUser);
@@ -38,8 +42,8 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO) {
+    @PostMapping("/auth/login")
+    public ResponseEntity<?> login(@Valid @RequestBody LoginDTO loginDTO) {
         try {
             User user = userService.login(loginDTO.getUsername(), loginDTO.getPassword());
             String token = jwtUtil.generateToken(user.getUsername());
