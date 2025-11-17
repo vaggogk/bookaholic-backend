@@ -21,7 +21,7 @@ public class Book {
     private Long id;
 
     @Column(name = "cover_image")
-    private String imageUrl;
+    private String coverImage;
 
     @Column(nullable = false)
     private String title;

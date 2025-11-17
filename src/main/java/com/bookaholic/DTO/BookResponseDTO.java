@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Setter
 public class BookResponseDTO {
     private Long id;
-    private String imageUrl;
+    private String coverImage;
     private String title;
     private String author;
     private String publisher;

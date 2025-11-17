@@ -1,16 +1,12 @@
 package com.bookaholic.DTO;
 
-import com.bookaholic.model.User;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +15,7 @@ import java.time.LocalDateTime;
 public class BookRequestDTO {
 
 
-    private String imageUrl;
+    private String coverImage;
 
     @NotBlank(message = "Book title is required")
     @Size(min = 1, max = 100, message = "Book title must be between 1-100 characters.")

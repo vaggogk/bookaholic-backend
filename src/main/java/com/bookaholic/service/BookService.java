@@ -73,7 +73,7 @@ public class BookService implements IBookService  {
             }
 
             // Update fields from DTO
-            existingBook.setImageUrl(bookDTO.getImageUrl());
+            existingBook.setCoverImage(bookDTO.getCoverImage());
             existingBook.setTitle(bookDTO.getTitle());
             existingBook.setAuthor(bookDTO.getAuthor());
             existingBook.setPublisher(bookDTO.getPublisher());

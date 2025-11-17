@@ -11,7 +11,7 @@ public class BookMapper {
 
     public Book mapToBookEntity(BookRequestDTO dto) {
         Book book = new Book();
-        book.setImageUrl(dto.getImageUrl());
+        book.setCoverImage(dto.getCoverImage());
         book.setTitle(dto.getTitle());
         book.setAuthor(dto.getAuthor());
         book.setPublisher(dto.getPublisher());
@@ -27,7 +27,7 @@ public class BookMapper {
     public BookResponseDTO mapToBookResponseDTO(Book book) {
             BookResponseDTO dto = new BookResponseDTO();
             dto.setId(book.getId());
-            dto.setImageUrl(book.getImageUrl());
+            dto.setCoverImage(book.getCoverImage());
             dto.setTitle(book.getTitle());
             dto.setAuthor(book.getAuthor());
             dto.setPublisher(book.getPublisher());
