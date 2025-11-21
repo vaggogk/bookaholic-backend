@@ -14,21 +14,22 @@ import lombok.Setter;
 @Setter
 public class BookRequestDTO {
 
-
     private String coverImage;
 
-    @NotBlank(message = "Book title is required")
+    @NotEmpty(message = "Book title is required")
     @Size(min = 1, max = 100, message = "Book title must be between 1-100 characters.")
+    @Pattern(regexp = "^(?!\\s*$).+", message = "Book title cannot be empty or contain only spaces")
     private String title;
 
-    @NotBlank(message = "Author is required")
+    @NotEmpty(message = "Author is required")
     @Size(min = 1, max = 100, message = "Author must be between 1-100 characters.")
+    @Pattern(regexp = "^(?!\\s*$).+", message = "Author cannot be empty or contain only spaces")
     private String author;
 
-    @NotBlank(message = "Publisher is required")
+    @NotEmpty(message = "Publisher is required")
     @Size(min = 1, max = 100, message = "Publisher must be between 1-100 characters.")
+    @Pattern(regexp = "^(?!\\s*$).+", message = "Publisher cannot be empty or contain only spaces")
     private String publisher;
-
 
     @Min(value = 0,  message = "Pages can be 0" )
     @Max(value = 10000, message = "Pages cannot exceed 10,000")

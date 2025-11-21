@@ -15,9 +15,9 @@ import lombok.Setter;
 @Setter
 public class RegisterDTO {
     @NotNull(message = "Name cannot be null.")
-    @Size(min = 3, max = 20,
-          message = "Name must be at least 3 characters long")
-       private String username;
+    @Size(min = 3, max = 20, message = "Name must be at least 3 characters long")
+    @Pattern(regexp = "^(?!\\s*$).+", message = "Username cannot be empty or contain only spaces")
+    private String username;
 
     @NotNull(message = "The email cannot be null.")
     @Email(message = "Please enter a valid email")
