@@ -8,7 +8,8 @@ import java.util.Date;
 
 @Component
 public class JwtUtil {
-    private final String SECRET_KEY = "";
+    // SECRET KEY ONLY FOR THE PROJECT (TEMPORARY)
+    private final String SECRET_KEY = "bXktc3VwZXItc2VjcmV0LWtleS1mb3ItYm9va2Fob2xpYy1hcHAtMjAyNS1tYWtlLXRoaXMtdmVyeS1sb25nLWFuZC1zZWN1cmU=";
 
     private final long EXPIRATION_TIME = 1000 * 60 * 60 * 24; // 24 hours
 
