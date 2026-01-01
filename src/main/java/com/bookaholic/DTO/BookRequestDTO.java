@@ -14,6 +14,7 @@ import lombok.Setter;
 @Setter
 public class BookRequestDTO {
 
+    @Size(max = 16000000, message = "Η εικόνα είναι πολύ μεγάλη. Μέγιστο μέγεθος: 4MB")
     private String coverImage;
 
     @NotEmpty(message = "Book title is required")

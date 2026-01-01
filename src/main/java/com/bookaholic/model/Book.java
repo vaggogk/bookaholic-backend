@@ -20,7 +20,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "cover_image")
+    @Column(name = "cover_image",columnDefinition = "MEDIUMTEXT")
     private String coverImage;
 
     @Column(nullable = false)
