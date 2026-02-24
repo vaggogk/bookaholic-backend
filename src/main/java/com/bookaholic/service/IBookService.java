@@ -8,13 +8,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
-
 @Service
 public interface IBookService {
 
     public Page<Book> getUserBooks(Long userId, Pageable pageable);
 
-    public  Page<Book> getUserBooksBySearch(Long userId, String search, Pageable pageable);
+    public Page<Book> getUserBooksBySearch(Long userId, String search, Pageable pageable);
 
     public Page<Book> getUserBooksByStatus(Long userId, String status, Pageable pageable);
 
@@ -30,7 +29,7 @@ public interface IBookService {
 
     public Long countUserBooks(Long userId);
 
-    public Long countUserBooksByStatus (Long userId, String status);
+    public Long countUserBooksByStatus(Long userId, String status);
 
     public Long countUserBooksBySearch(Long userId, String search);
 

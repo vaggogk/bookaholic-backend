@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -41,6 +42,12 @@ public class Book {
 
     @Column(name = "reading_status")
     private String readingStatus;
+
+    @Column(name = "started")
+    private Date started;
+
+    @Column(name = "finished")
+    private Date finished;
 
     @Column(name = "review_rating")
     private Double reviewRating;

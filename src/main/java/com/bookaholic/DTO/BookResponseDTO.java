@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,6 +21,8 @@ public class BookResponseDTO {
     private Double cost;
     private String readingStatus;
     private Double reviewRating;
+    private Date started;
+    private Date finished;
     private String notes;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

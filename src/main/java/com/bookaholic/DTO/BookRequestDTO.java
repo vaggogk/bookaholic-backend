@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -44,6 +46,12 @@ public class BookRequestDTO {
     @Pattern(regexp = "to_read|currently_reading|finished|gave_up",
             message = "Reading status can be to_read or currently_reading or finished or gave_up")
     private String readingStatus;
+
+    @PastOrPresent(message = "Start date cannot be in the future")
+    private Date started;
+
+    @PastOrPresent(message = "Finish date cannot be in the future")
+    private Date finished;
 
     @DecimalMin(value = "0.0", message = "Rating must be at least 0")
     @DecimalMax(value = "5.0", message = "Rating cannot exceed 5")

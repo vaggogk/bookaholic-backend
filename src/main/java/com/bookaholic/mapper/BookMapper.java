@@ -19,6 +19,8 @@ public class BookMapper {
         book.setCost(dto.getCost());
         book.setReadingStatus(dto.getReadingStatus());
         book.setReviewRating(dto.getReviewRating());
+        book.setStarted(dto.getStarted());
+        book.setFinished(dto.getFinished());
         book.setNotes(dto.getNotes());
         return book;
     }
@@ -35,6 +37,8 @@ public class BookMapper {
             dto.setCost(book.getCost());
             dto.setReadingStatus(book.getReadingStatus());
             dto.setReviewRating(book.getReviewRating());
+            dto.setStarted(book.getStarted());
+            dto.setFinished(book.getFinished());
             dto.setNotes(book.getNotes());
             dto.setCreatedAt(book.getCreatedAt());
             dto.setUpdatedAt(book.getUpdatedAt());

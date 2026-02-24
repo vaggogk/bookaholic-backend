@@ -81,6 +81,8 @@ public class BookService implements IBookService  {
             existingBook.setCost(bookDTO.getCost());
             existingBook.setReadingStatus(bookDTO.getReadingStatus());
             existingBook.setReviewRating(bookDTO.getReviewRating());
+            existingBook.setStarted(bookDTO.getStarted());
+            existingBook.setFinished(bookDTO.getFinished());
             existingBook.setNotes(bookDTO.getNotes());
             existingBook.setUpdatedAt(LocalDateTime.now());
 
