@@ -23,7 +23,7 @@
 
 ### Κύριες Οντότητες
 - **User**: Χρήστες συστήματος (id, username, email, password, createdAt)
-- **Book**: Βιβλία που ανήκουν στους χρήστες (id, title, author, publisher, pages, cost, readingStatus, reviewRating, notes, coverImage)
+- **Book**: Βιβλία που ανήκουν στους χρήστες (id, title, author, publisher, pages, cost, readingStatus, reviewRating, started, finished, notes, coverImage)
 
 ### Σχέσεις
 - User 1 <-> N Book (Κάθε βιβλίο ανήκει σε έναν χρήστη)
